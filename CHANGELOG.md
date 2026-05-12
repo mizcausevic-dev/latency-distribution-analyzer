@@ -7,9 +7,9 @@ This log is intentionally written as an engineering record rather than a launch 
 ## [1.0.0] - 2026-05-12
 
 ### Released
-- Published \$name\ as a public, portfolio-grade platform governance system.
+- Published **latency-distribution-analyzer** as a public, portfolio-grade platform governance system.
 - Packaged the current implementation, documentation, validation workflow, and proof surfaces into a repo that could be reviewed by engineering, product, and operating stakeholders.
-- Tightened the repo story around the real-world operating problem: operators needed clearer evidence when policy drift, incident pressure, or observability cost moved from a technical nuisance into a business risk.
+- Tightened the repo story around the real-world operating problem: policy drift, observability blind spots, latency pressure, and fragmented control evidence.
 
 ### Why this mattered
 - Existing approaches in monitoring, SIEM, CI, and governance tools were useful, but they each solved a slice of the problem, but not the combined operator view needed to respond with confidence.
@@ -18,7 +18,7 @@ This log is intentionally written as an engineering record rather than a launch 
 ## [0.1.0] - 2026-01-21
 
 ### Shipped
-- Cut the first coherent internal version of the product shape behind \$name\.
+- Cut the first coherent internal version of the product shape behind **latency-distribution-analyzer**.
 - Standardized the core objects, decision surfaces, and operator outputs around the repo's main working problem.
 - Established the first reviewable version of the architecture described as: Julia backend for latency distribution fitting, SLA breach probability forecasting, and percentile band analysis. Ingests service log exports, fits LogNormal/Weibull via MLE, computes P50–P99.9 with confidence intervals, and projects 24h SLA breach probability using Markov chains. HTTP.jl REST surface.
 
@@ -55,12 +55,12 @@ This log is intentionally written as an engineering record rather than a launch 
 ## [Idea Origin] - 2022-01-07
 
 ### Observed
-- The initial idea surfaced while looking at how teams were handling operators needed clearer evidence when policy drift, incident pressure, or observability cost moved from a technical nuisance into a business risk.
+- The initial idea surfaced while looking at how teams were handling policy drift, observability blind spots, latency pressure, and fragmented control evidence.
 - The recurring pattern was that people could often see fragments of the problem, but not the whole operational story in one place.
 
 ### Insight
 - The missing product was not another point solution. It was a clearer operating layer that made the work legible to platform, security, and reliability teams.
-- That insight became the basis for \$name\.
+- That insight became the basis for **latency-distribution-analyzer**.
 
 ## [Background Signals] - 2022-08-09
 
