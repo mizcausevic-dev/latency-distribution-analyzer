@@ -1,0 +1,11 @@
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b466-afe8fa294f15"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f4"
+JSON3 = "0f8b85d8-7e73-4a62-b03d-4f0a1bbdb24c"
+Optim = "429524aa-4258-5aef-a3af-852621145aeb"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+
+[compat]
+julia = "1.9"
