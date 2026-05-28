@@ -19,7 +19,10 @@ jobs:
       - uses: julia-actions/cache@v2
 
       - name: Instantiate packages
-        run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
+        # Explicitly add the General registry before instantiate — under
+        # julia-actions/cache the depot can come up empty, causing
+        # 'expected package HTTP to be registered'. Idempotent + safe.
+        run: julia --project=. -e 'using Pkg; Pkg.Registry.add("General"); Pkg.instantiate()'
 
       - name: Run tests
         run: julia --project=. test/test_distributions.jl
