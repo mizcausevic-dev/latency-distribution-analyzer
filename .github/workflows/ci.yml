@@ -16,13 +16,15 @@ jobs:
         with:
           version: '1.10'
 
-      - uses: julia-actions/cache@v2
+      # julia-actions/cache@v2 dropped — when the cache restores an empty
+      # depot, Pkg.instantiate() can't find the General registry and fails
+      # with 'expected package HTTP to be registered'. The setup-julia
+      # action already creates a fresh depot with the General registry
+      # attached on every run, so skipping the cache trades ~30s for
+      # a clean depot and stable resolution.
 
       - name: Instantiate packages
-        # Explicitly add the General registry before instantiate — under
-        # julia-actions/cache the depot can come up empty, causing
-        # 'expected package HTTP to be registered'. Idempotent + safe.
-        run: julia --project=. -e 'using Pkg; Pkg.Registry.add("General"); Pkg.instantiate()'
+        run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
 
       - name: Run tests
         run: julia --project=. test/test_distributions.jl
